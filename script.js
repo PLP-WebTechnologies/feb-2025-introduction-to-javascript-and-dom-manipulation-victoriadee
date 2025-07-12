@@ -1,25 +1,31 @@
 
-const container = document.getElementById("container");
-  container.innerHTML = "<p>Life values</p>"; // Adds a paragraph
-   const image = document.getElementById("image");
-  image.setAttribute("src", "new-image.jpg"); // Updates the image source 
+// Change text content dynamically
+document.getElementById('changeTextBtn').addEventListener('click', () => {
+  document.getElementById('title').textContent = 'Text Changed with JavaScript!';
+  document.getElementById('dynamicBox').textContent = 'The box text has been updated!';
+});
 
-  const text = document.getElementById("text");
-  text.classList.add("bold"); // Adds a class
-  text.classList.remove("highlight"); // Removes a class
+// Modify CSS styles dynamically
+document.getElementById('changeStyleBtn').addEventListener('click', () => {
+  const box = document.getElementById('dynamicBox');
+  box.style.backgroundColor = 'darkblue';
+  box.style.color = 'white';
+  box.style.fontWeight = 'bold';
+});
 
-   const list = document.getElementById("list");
-  const addButton = document.getElementById("add");
+// Add or remove an element
+document.getElementById('toggleElementBtn').addEventListener('click', () => {
+  const container = document.getElementById('container');
+  const existingPara = document.getElementById('dynamicParagraph');
 
-  addButton.addEventListener("click", () => {
-    const newItem = document.createElement("li"); // Create new list item
-    newItem.textContent = "New Item"; // Set its text
-    list.appendChild(newItem); // Add it to the list
-  }); 
-  const alertButton = document.getElementById("alert");
-  alertButton.addEventListener("click", () => {
-    alert("Button clicked!");
-  }); 
-
+  if (existingPara) {
+    container.removeChild(existingPara);
+  } else {
+    const newPara = document.createElement('p');
+    newPara.id = 'dynamicParagraph';
+    newPara.textContent = 'This paragraph was added with JavaScript!';
+    container.appendChild(newPara);
+  }
+});
 
 
